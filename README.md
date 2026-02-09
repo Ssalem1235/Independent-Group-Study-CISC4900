@@ -124,13 +124,13 @@ The goal of this project is not to claim direct causation, but to provide measur
 ---
 
 ## Repository Structure
-/data → Cleaned datasets
-/src → Data processing and analysis scripts
-/notebooks → Exploratory and statistical analysis
-/visuals → Generated plots and figures
-/report → Final paper and references
-/slides → Presentation materials
-/site → Project website content 
+- /data → Cleaned datasets
+- /src → Data processing and analysis scripts
+- /notebooks → Exploratory and statistical analysis
+- /visuals → Generated plots and figures
+- /report → Final paper and references
+- /slides → Presentation materials
+- /site → Project website content 
 
 ## Authors
 - Saleh Salem  
