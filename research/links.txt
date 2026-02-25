@@ -4,3 +4,5 @@ Data Drain: Land and Water - https://www.lincolninst.edu/publications/land-lines
 Data on AI and Employment - https://www.adpresearch.com/yes-ai-is-affecting-employment-heres-the-data/#:~:text=Employment%20for%20early%20career%20software,shadowed%20every%20presentation%20and%20discussion.
 Students and AI dependency: - https://cdt.org/wp-content/uploads/2025/10/CDT-2025-Hand-in-Hand-Polling-111225-accessible.pdf
                            - https://cdt.org/wp-content/uploads/2025/10/FINAL_CDT-Polling-2025-Supporting-Slides.pdf
+2025 Stanford AI Index Report - https://hai.stanford.edu/assets/files/hai_ai_index_report_2025.pdf
+
