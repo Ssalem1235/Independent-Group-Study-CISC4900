@@ -163,5 +163,5 @@ or written analysis. We follow this requirement in all visualizations.
 
 ---
 
-*Last updated: [Add your date when you set up the data]*
+
 *Researchers: Saleh Salem & Saisha Wesley — CISC 4900, Brooklyn College*
