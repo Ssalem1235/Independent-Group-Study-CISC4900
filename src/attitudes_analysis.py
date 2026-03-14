@@ -1,6 +1,6 @@
 """
 attitudes_analysis.py
-=====================
+
 Analyzes shifts in U.S. public sentiment toward AI using Pew Research
 Center survey data (2021-2024).
 
@@ -35,10 +35,6 @@ DATA SOURCE:
     https://www.pewresearch.org/internet/2025/04/03/how-the-us-public-and-ai-experts-view-artificial-intelligence/
     → Check for updated 2024 figures in this report.
 
-  NOTE: If you find slightly different numbers when you check the reports,
-  use YOUR extracted values and update the CSV. What matters is that
-  data/README.md links to the exact table/page you pulled from.
-
 WHY THIS IS ORIGINAL ANALYSIS:
   - Aggregating four years of Pew data into a single trend visualization
     is not available in any single Pew report
@@ -52,14 +48,14 @@ import matplotlib.ticker as mticker
 import numpy as np
 from pathlib import Path
 
-# ── PATHS ─────────────────────────────────────────────────────────────────────
+# PATHS 
 BASE_DIR    = Path(__file__).resolve().parent.parent
 DATA_DIR    = BASE_DIR / "data"
 VISUALS_DIR = BASE_DIR / "visuals"
 VISUALS_DIR.mkdir(exist_ok=True)
 CSV_PATH    = DATA_DIR / "pew_attitudes.csv"
 
-# ── DATA ──────────────────────────────────────────────────────────────────────
+# DATA 
 # Values manually extracted from Pew Research Center published reports.
 # See docstring above for exact sources. Update if your extraction differs.
 PEW_VALUES = {
@@ -75,12 +71,12 @@ if CSV_PATH.exists():
     print(f"✓ Loaded CSV: {CSV_PATH}")
 else:
     df = pd.DataFrame(PEW_VALUES)
-    print("⚠ pew_attitudes.csv not found. Using hardcoded values extracted from Pew reports.")
+    print("pew_attitudes.csv not found. Using hardcoded values extracted from Pew reports.")
     print("  → Verify these numbers against the reports in the docstring above.")
     df.to_csv(CSV_PATH, index=False)
     print(f"  → Saved to {CSV_PATH}")
 
-# ── VALIDATE ──────────────────────────────────────────────────────────────────
+# VALIDATE
 for col in ["year", "more_concerned", "more_excited", "equal_mixed"]:
     if col not in df.columns:
         raise ValueError(
@@ -94,10 +90,10 @@ df = df.sort_values("year").reset_index(drop=True)
 df["row_sum"] = df["more_concerned"] + df["more_excited"] + df["equal_mixed"]
 off = df[df["row_sum"].between(95, 105) == False]
 if not off.empty:
-    print(f"\n⚠ Warning: Some rows don't sum near 100%:\n{off[['year','row_sum']]}")
+    print(f"\n Warning: Some rows don't sum near 100%:\n{off[['year','row_sum']]}")
     print("  → Check your extracted values against the source reports.")
 
-# ── DESCRIPTIVE STATS (original analysis) ─────────────────────────────────────
+# DESCRIPTIVE STATS (original analysis)
 print("\nDescriptive summary:")
 print(df[["year","more_concerned","more_excited","equal_mixed"]].to_string(index=False))
 
@@ -106,7 +102,7 @@ excited_change   = df["more_excited"].iloc[-1]   - df["more_excited"].iloc[0]
 print(f"\n→ 'More concerned' changed by {concerned_change:+.0f} pp ({df['year'].iloc[0]}–{df['year'].iloc[-1]})")
 print(f"→ 'More excited'   changed by {excited_change:+.0f} pp ({df['year'].iloc[0]}–{df['year'].iloc[-1]})")
 
-# ── PLOT ──────────────────────────────────────────────────────────────────────
+# PLOT
 fig, ax = plt.subplots(figsize=(10, 6))
 fig.patch.set_facecolor("#f5f2eb")
 ax.set_facecolor("#f5f2eb")
@@ -154,7 +150,7 @@ ax.annotate(
     arrowprops=dict(arrowstyle="->", color="#c84b2f", lw=1.1),
 )
 
-# ── STYLING ───────────────────────────────────────────────────────────────────
+# STYLING
 ax.set_title(
     "U.S. Public Sentiment Toward AI in Daily Life, 2021–2024",
     fontsize=13, fontweight="bold", pad=14, color="#0f1117"
