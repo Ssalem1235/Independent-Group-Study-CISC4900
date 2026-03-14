@@ -1,0 +1,12 @@
+year,total_twh,ai_twh,is_projected
+2020,270,30,False
+2021,298,40,False
+2022,325,55,False
+2023,360,80,False
+2024,415,130,False
+2025,490,200,True
+2026,580,290,True
+2027,680,390,True
+2028,775,480,True
+2029,860,560,True
+2030,945,640,True
