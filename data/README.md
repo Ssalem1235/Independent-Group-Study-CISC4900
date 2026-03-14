@@ -45,9 +45,9 @@ one axis in the comparative chart (summary_analysis.py)
 | **Source**  | Stanford AI Index 2025, Chapter 4: Economy |
 | **Underlying data** | McKinsey Global Survey on AI (annual) |
 | **URL**     | https://drive.google.com/drive/folders/1AxxxL9-AsaeMdDKtTNHCR1KqEJTsHCod |
-| **Report reference** | AI Index 2025, p. 217 (Figure 4.1.2) |
+| **Report reference** | AI Index 2025, p. 261 (Figure 4.4.1) |
 | **Coverage** | 2017–2024, global (weighted sample) |
-| **Acquisition** | Downloaded from Stanford AI Index public Google Drive, OR values extracted from report Figure 4.1.2 |
+| **Acquisition** | Downloaded from Stanford AI Index public Google Drive, OR values extracted from report Figure 4.4.1 |
 
 **What it measures:** The percentage of survey respondents who report that
 their organization uses AI in at least one business function.
