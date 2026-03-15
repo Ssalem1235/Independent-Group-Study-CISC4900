@@ -130,7 +130,7 @@ terawatt-hours (TWh), with a breakdown attributing a portion to AI-specific
 - 2030 (IEA Base Case projection): ~945 TWh
 - AI-attributed share growing from ~30 TWh (2020) to ~640 TWh (2030, projected)
 
-**⚠ Important — projections are NOT observations:**
+** Important — projections are NOT observations:**
 All values for 2025 and beyond are IEA Base Case scenario projections.
 They carry uncertainty and should be clearly labeled as such in any chart
 or written analysis. We follow this requirement in all visualizations.
