@@ -50,22 +50,41 @@ function createPoll() {
     let y = questions[x];
     let box = document.createElement('div');
     box.className = 'questionbox';
-    let optionsInHTML = '';
+
+    let optionsDiv = document.createElement('div');
+    optionsDiv.className = 'options';
+    optionsDiv.id = 'options' + x;
+
     for (let a = 0; a < y.answers.length; a++) {
-      let b = y.answers[a];
-      optionsInHTML += '<button class="optionbuttons" onclick="pick(' + x + ', ' + a + ', this)">' + b + '</button>';
+      let btn = document.createElement('button');
+      btn.className = 'optionbuttons';
+      btn.textContent = y.answers[a];
+      btn.addEventListener('click', function() {
+        pick(x, a, btn);
+      });
+      optionsDiv.appendChild(btn);
     }
-    box.innerHTML =
-      '<div class="questiontext">' + y.text + '</div>' +
-      '<div class="options" id="options' + x + '">' + optionsInHTML + '</div>' +
-      '<div class="errortext" id="error' + x + '" style="display:none;">Please select an answer before submitting.</div>';
+
+    let questionText = document.createElement('div');
+    questionText.className = 'questiontext';
+    questionText.textContent = y.text;
+
+    let errorText = document.createElement('div');
+    errorText.className = 'errortext';
+    errorText.id = 'error' + x;
+    errorText.textContent = 'Please select an answer before submitting.';
+    errorText.style.display = 'none';
+
+    box.appendChild(questionText);
+    box.appendChild(optionsDiv);
+    box.appendChild(errorText);
     pollContainer.appendChild(box);
   }
 
   const button = document.createElement('button');
   button.className = 'submitbutton';
   button.textContent = 'Submit';
-  button.onclick = submission;
+  button.addEventListener('click', submission);
   pollContainer.appendChild(button);
 }
 
@@ -162,9 +181,6 @@ function createCharts(data) {
     }
   }
 }
-
-window.pick = pick;
-window.submission = submission;
 
 if (localStorage.getItem('hasSubmitted') === 'true') {
   document.getElementById('poll').style.display = 'none';
