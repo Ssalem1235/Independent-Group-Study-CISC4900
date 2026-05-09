@@ -45,7 +45,7 @@ function createPoll() {
     let optionsInHTML = '';
     for(let a = 0; a < y.answers.length; a++) {
       let b = y.answers[a];
-      optionsInHTML += '<button class= "optionbuttons" onclick="pick(' + x + ', ' + a + ', this)">' + b + '</button>';
+      optionsInHTML += '<button class="optionbuttons" onclick="pick(' + x + ', ' + a + ', this)">' + b + '</button>';
     }
     box.innerHTML = 
       '<div class ="questiontext">' + y.text + '</div>' + '<div class="options" id="options' + x + '">' + optionsInHTML + '</div>' + '<div class="errortext" id="error' + x + '" style="display:none;">Select an answer before submitting. Thank you.</div>';
