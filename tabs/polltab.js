@@ -94,5 +94,27 @@ function createCharts() {
   chartContainer.innerHTML = '';
   for(let x = 0; x < questions.length; x++) {
     let q = questions[x];
+    let s = document.createElement('div');
+    s.className = "optionselect";
+    s.innerHTML = 'div class="optionquestion">' + q.text + '</div><div : id="bars' + x + '"></div>';
+    chartContainer.appendChild(s);
+    let bd = document.getElementById('bars' + x);
+    let total = 0;
+    for(let i = 0; i < submissions[x].length; i++) {
+      total += submissions[x][i];
+    }
+    for (let a = 0; a < q.answers.length; a++) {
+      let counter = submissions[x][a];
+      let p = 0;
+      if(total > 0) {
+        p = Math.rounf((counter / total) * 100);
+      }
+      let r = document.createElement('div');
+      r.className = 'row';
+      r.innerHTML = '<div class="blabel">' + q.answers[a] + '</div>' + '<div class="btrack"><div class="bfill" style="width:' + pct + '%;background:' + resultcolors[a % resultcolors.length] + '"></div></div>' + '<div class="bpct">' + pct + '%</div>';
+      barsDiv.appendChild(r);
+    }
+  }
+}
     
   
