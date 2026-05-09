@@ -40,7 +40,7 @@ function createPoll() {
     let y = questions[x];
 
     let box = document.createElement('div');
-    box.className = 'questionblock';
+    box.className = 'questionbox';
 
     let optionsInHTML = '';
     for(let a = 0; a < y.answers.length; a++) {
