@@ -69,14 +69,6 @@ function pick(x, a, button) {
   document.getElementById('error' + x).style.display = 'none';
 }
 
-
-function pick(qi, ai, btn) {
-  document.querySelectorAll('#choices' + qi + ' .cbtn').forEach(b => b.classList.remove('sel'));
-  btn.classList.add('sel');
-  selected[qi] = ai;
-  document.getElementById('error' + qi).style.display = 'none';
-}
-
 function submission() {
   let answered = true;
   for (let x = 0; x < chosen.length; x++) {
@@ -85,7 +77,7 @@ function submission() {
       answered = false;
     }
   }
-  if (!allAnswered) return;
+  if (!answered) return;
 
  for(let x = 0; x < chosen.length; x++){
   submissions[x][chosen[x]]++;
