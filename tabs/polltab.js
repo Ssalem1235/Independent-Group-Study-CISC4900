@@ -111,8 +111,8 @@ function createCharts() {
       }
       let r = document.createElement('div');
       r.className = 'row';
-      r.innerHTML = '<div class="blabel">' + q.answers[a] + '</div>' + '<div class="btrack"><div class="bfill" style="width:' + pct + '%;background:' + resultcolors[a % resultcolors.length] + '"></div></div>' + '<div class="bpct">' + pct + '%</div>';
-      barsDiv.appendChild(r);
+      r.innerHTML = '<div class="countlabel">' + q.answers[a] + '</div>' + '<div class="b=counttrack"><div class="countfill" style="width:' + pct + '%;background:' + resultcolors[a % resultcolors.length] + '"></div></div>' + '<div class="countp">' + p + '%</div>';
+      bd.appendChild(r);
     }
   }
 }
