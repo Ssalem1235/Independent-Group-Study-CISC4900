@@ -34,7 +34,7 @@ for(let i = 0; i < questions.length; i++) {
 
 function createPoll() {
   const pollContainer = document.getElementById('poll');
-  pollContainer.inHTML = '';
+  pollContainer.innerHTML = '';
 
   for(let x = 0; x < questions.length; x++) {
     let y = questions[x];
@@ -45,6 +45,11 @@ function createPoll() {
     let optionsInHTML = '';
     for(let a = 0; a < y.answers.length; a++) {
       let b = y.answers[a];
-      optionsInHTML += 'button class= "optionbuttons" onclick"pick(' + x + ', ' + a + ', this)">' + b + '</button>';
+      optionsInHTML += '<button class= "optionbuttons" onclick="pick(' + x + ', ' + a + ', this)">' + b + '</button>';
     }
+    box.innerHTML = 
+      '<div class ="questiontext">' + y.text + '</div>' + '<div class="options' + x + '">' + optionsInHTML + '</div>' + '<div class="errortext" id="error' + x + '">Select an answer before submitting. Thank you.</div>';
+
+    pollContainer.appendChild(box);
+  }
   
