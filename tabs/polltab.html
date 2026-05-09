@@ -79,8 +79,52 @@
       cursor: pointer;
       width: 100%;
     }
-    
-
+    .countrow {
+      display: flex;
+      aligh-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    .countlabel {
+      font-size: 13px;
+      color: rgb(12, 12, 12);
+      width: 200px;
+    }
+    .counttrack {
+      flex: 1;
+      height: 23px;
+      background: rgb(232, 217, 187);
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid rgb(42, 32, 22);
+    }
+    .countfill{ 
+      height: 100%;
+      border-radius: 4px;
+    }
+    .countp {
+      font-size: 12px;
+      color: rgb(85, 85, 85);
+      min-width: 33px;
+      text-align: right;
+    }
+    .optionselect {
+      margin-bottom: 2rem;
+    }
+    .optionquestion {
+      font-size: 13px;
+      font-weight: 600;
+      color: (50, 50, 50);
+      margin-bottom: 1rem;
+      padding-bottom: .5rem;
+      border-bottom: 1px solid rgb(42, 32, 22);
+    }
+    #totalCount {
+      font-size: 13px;
+      color: rgb(42, 32, 22);
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
       
   </style>
 </head>
@@ -100,9 +144,14 @@
 
 <div class="pollcontainer">
   <div id="poll"></div>
+  <div id="results" style="display: none;">
+  <div id="totalCount"></div>
+  <div id="charts"></div>
 </div>
+  </div>
   
 <script src="polltab.js"></script>
+  <script> createPoll(); </script>
   
 </body>
 </html>
