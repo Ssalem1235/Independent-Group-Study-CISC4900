@@ -78,11 +78,11 @@ function pick(qi, ai, btn) {
 }
 
 function submission() {
-  let allAnswered = true;
-  selected.forEach((val, qi) => {
-    if (val === null) {
-      document.getElementById('error' + qi).style.display = 'block';
-      allAnswered = false;
+  let answered = true;
+  for (let x = 0; x < chosen.length; x++) {
+    if (chosen[x] === null) {
+      document.getElementById('error' + x).style.display = 'block';
+      answered = false;
     }
   }
   if (!allAnswered) return;
@@ -119,7 +119,7 @@ function createCharts() {
         p = Math.round((counter / total) * 100);
       }
       let r = document.createElement('div');
-      r.className = 'row';
+      r.className = 'countrow';
       r.innerHTML = '<div class="countlabel">' + q.answers[a] + '</div>' + '<div class="counttrack"><div class="countfill" style="width:' + p + '%;background:' + resultcolors[a % resultcolors.length] + '"></div></div>' + '<div class="countp">' + p + '%</div>';
       bd.appendChild(r);
     }
