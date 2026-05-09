@@ -163,6 +163,9 @@ function createCharts(data) {
   }
 }
 
+window.pick = pick;
+window.submission = submission;
+
 if (localStorage.getItem('hasSubmitted') === 'true') {
   document.getElementById('poll').style.display = 'none';
   document.getElementById('results').style.display = 'block';
