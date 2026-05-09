@@ -59,7 +59,7 @@ function createPoll() {
   pollContainer.appendChild(button);
 }
 function pick(x, a, button) {
-  let optionGroup = document.getElementById('choices' + x);
+  let optionGroup = document.getElementById('options' + x);
   let allButtons = optionGroup.getElementsByClassName('optionbuttons');
   for (let i = 0; i < allButtons.length; i++) {
     allButtons[i].classList.remove('selected');
@@ -71,8 +71,8 @@ function pick(x, a, button) {
 function submission() {
   let answered = true;
   for(x = 0; x < chosen.length; x++) {
-    if(chosen[x] === null) [
-      document.getElementByIdd('error' + x).style.display = 'block';
+    if(chosen[x] === null) {
+      document.getElementById('error' + x).style.display = 'block';
     answered = false;
   }
 }
@@ -96,7 +96,7 @@ function createCharts() {
     let q = questions[x];
     let s = document.createElement('div');
     s.className = "optionselect";
-    s.innerHTML = 'div class="optionquestion">' + q.text + '</div><div : id="bars' + x + '"></div>';
+    s.innerHTML = '<div class="optionquestion">' + q.text + '</div><div id="bars' + x + '"></div>';
     chartContainer.appendChild(s);
     let bd = document.getElementById('bars' + x);
     let total = 0;
@@ -107,7 +107,7 @@ function createCharts() {
       let counter = submissions[x][a];
       let p = 0;
       if(total > 0) {
-        p = Math.rounf((counter / total) * 100);
+        p = Math.round((counter / total) * 100);
       }
       let r = document.createElement('div');
       r.className = 'row';
