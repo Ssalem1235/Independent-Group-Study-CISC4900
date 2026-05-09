@@ -52,4 +52,47 @@ function createPoll() {
 
     pollContainer.appendChild(box);
   }
+  const button = document.createElement('button');
+  button.className = 'submitbutton'; 
+  button.textContent = 'Submit';
+  button.onclick = submit;
+  pollContainer.appendChild(button);
+}
+function pick(x, a, button) {
+  let optionGroup = document.getElementById('choices' + x);
+  let allButtons = optionGroup.getElementsByClassName('optionbuttons');
+  for (let i = 0; i < allButtons.length; i++) {
+    allButtons[i].classList.remove('selected');
+  }
+  button.classList.add('selected');
+  chosen[x] = a;
+  document.getElementById('error' + x).style.display = 'none';
+}
+function submission() {
+  let answered = true;
+  for(x = 0; x < chosen.length; x++) {
+    if(chosen[x] === null) [
+      document.getElementByIdd('error' + x).style.display = 'block';
+    answered = false;
+  }
+}
+if(!answered) return;
+
+for(let x = 0; x < chosen.length; x++){
+  submissions[x][chosen[x]]++;
+}
+ let total = submissions[0].reduce(function(a, b) { return a + b; }, 0);
+
+  document.getElementById('poll').style.display = 'none';
+  document.getElementById('results').style.display = 'block';
+  document.getElementById('totalBadge').textContent = total + ' response' + (total !== 1 ? 's' : '') + ' so far';
+  createCharts();
+}
+
+function createCharts() {
+  const chartContainer = document.getElementById('charts');
+  chartContainer.innerHTML = '';
+  for(let x = 0; x < questions.length; x++) {
+    let q = questions[x];
+    
   
